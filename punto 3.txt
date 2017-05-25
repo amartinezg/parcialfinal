@@ -1,0 +1,7 @@
+punto 3) 
+CREATE OR REPLACE TRIGGER mask_function 
+  AFTER UPDATE OF masks ON result1 FOR EACH ROW 
+BEGIN
+  DBMS_OUTPUT.PUT_LINE('Ejecutando TRIGGER, VEHICLE_ID: ' || :OLD.VEHICLE_ID || ', NEW MILEAGE: ' || :NEW.MILEAGE);
+      mask_function(:OLD.VEHICLE_ID, :NEW.MILEAGE);	
+END;
