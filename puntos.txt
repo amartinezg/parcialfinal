@@ -1,0 +1,41 @@
+punto 1
+CREATE OR REPLACE FUNCTION mask_function ( mask IN VARCHAR2)
+RETURN VARCHAR2
+IS
+  excep EXCEPTION;
+  respuesta VARCHAR2(4000):='';
+  num INT:= 0;
+  cont INT:=1;
+BEGIN
+  IF 1 >= LENGTH(mask) AND LENGTH(mask)<= 1000 THEN
+      FOR i IN 0..9 LOOP
+      num:= TO_NUMBER( REPLACE(mask, '*' , TO_CHAR(i)) );
+      IF (MOD(numero,6) = 0) THEN
+IF LENGTH (respuesta) = 0 the 
+                  cont:= cont + 1;
+          resultado:= TO_CHAR(num);
+        ELSE
+          respuesta:= respuesta || ',' || TO_CHAR(num);
+        END IF;
+      END IF;
+    END LOOP;
+  ELSE
+    RAISE excep;
+  END IF;
+  RETURN respuesta;
+  EXCEPTION
+    WHEN excep THEN
+      dbms_output.put_line('La cadena debe de tener una longitud mayor o igual a 1 hasta 1000');
+END mask_function;
+
+
+
+punto 2)
+create table masks (
+
+  idmask_pk    integer        not null,
+  Mask1   varchar2(1000)      not null,
+  Result1  varchar(4000)      not null 
+
+);
+
